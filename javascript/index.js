@@ -26,6 +26,20 @@ setInterval(function () {
   }
 }, 1000);
 
+setInterval(function () {
+  let canadaElement = document.querySelector("#canada");
+  if (canadaElement) {
+    let canadaDateElement = canadaElement.querySelector(".date");
+    let canadaTimeElement = canadaElement.querySelector(".time");
+    let canadaTime = moment().tz("Canada/Central");
+
+    canadaDateElement.innerHTML = canadaTime.format("MMMM Do YYYY");
+    canadaTimeElement.innerHTML = canadaTime.format(
+      "HH:mm:ss [<small>]A[</small>]"
+    );
+  }
+}, 1000);
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "my-location") {
@@ -44,6 +58,7 @@ function updateCity(event) {
     "A"
   )}</small></div>
   </div>
+  <a href="/">All cities</a>
   `;
 }
 
